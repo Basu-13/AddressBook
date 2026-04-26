@@ -9,7 +9,7 @@ void listContacts(AddressBook *addressBook, int sortCriteria)
 {
     // Sort contacts based on the chosen criteria
 
-    //sorted contacts using bubble sort.
+    //sorted contacts using bubble sort
     for(int i=0; i<addressBook->contactCount-1; i++)
     {
         for(int j=0; j<addressBook->contactCount-1-i; j++)
