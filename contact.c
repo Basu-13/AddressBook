@@ -54,13 +54,13 @@ void saveAndExit(AddressBook *addressBook) {
 void validName(AddressBook *addressBook, char *newName)
 {
     //name validation
-    char Name[50]; 
+    char Name[50];  
     int flag;
 
     while(1)
     {
         printf("Enter the name: ");
-        scanf(" %[^\n]", Name);
+        scanf(" %99[^\n]", Name);
 
         flag=1;
         //validating name only alphabates, space and dot allowed.
@@ -347,7 +347,7 @@ void createContact(AddressBook *addressBook)
     printf("                     CREATE CONTACT                      \n");
     printf("<------------------------------------------------------->\n");
 
-    char Name[100], Phone[100], Email[100];
+    char Name[50], Phone[20], Email[50];
 
     //validate for name, phone number nad email.
     validName(addressBook, Name);
@@ -386,16 +386,17 @@ void searchContact(AddressBook *addressBook)
     printf("1. search by name\n");
     printf("2. search by mobile number\n");
     printf("3. search by email\n");
-    printf("enter your choice");
+    printf("enter your choice: ");
     scanf("%d", &choice);
 
-    int dup_index[100];
+    int dup_index[addressBook->contactCount];
     int dup_count=0;
 
     //search contact by name, phone number and email.
     switch(choice)
     {
         case 1:
+            getchar();
             printf("Enter the name: ");
             scanf(" %[^\n]", str);
         
@@ -412,6 +413,7 @@ void searchContact(AddressBook *addressBook)
         break;
 
         case 2:
+            getchar();
             printf("Enter the phone number: ");
             scanf(" %[^\n]", str);
 
@@ -428,6 +430,7 @@ void searchContact(AddressBook *addressBook)
         break;
 
         case 3:
+            getchar();
             printf("Enter the email: ");
             scanf(" %[^\n]", str);
 
@@ -749,7 +752,7 @@ void deleteContact(AddressBook *addressBook)
     }
 
     char ch;
-    printf("Which contact do you want to delete (y/Y): ");
+    printf("Do you want to delete (y/Y): ");
     scanf(" %c", &ch);
 
     //shift contacts to remove selected contacts.
